@@ -94,8 +94,6 @@ app.post('/api/notes', (req, res) => {
   res.json(note);
 });
 
-app.use(unknownEndpoint);
-
 const PORT = process.env.PORT || 3003;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
