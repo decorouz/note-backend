@@ -1,3 +1,11 @@
 
 
-DELETE http://localhost:3002/api/notes/1
+get http://localhost:3003/api/notes
+Content-Type: application/json
+
+{
+    "content": "VS Code rest Client",
+    "important": true
+}
+
+
