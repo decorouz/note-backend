@@ -4,7 +4,7 @@ module.exports = {
     commonjs: true,
     es6: true
   },
-  extends: 'eslint:recommended',
+  extends: 'airbnb',
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly'
@@ -23,4 +23,4 @@ module.exports = {
     'arrow-spacing': ['error', { before: true, after: true }],
     'no-console': 0
   }
-};
+}
