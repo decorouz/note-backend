@@ -1,6 +1,6 @@
 const http = require('http')
 const app = require('./app')
-const { PORT, MONGODB_URI } = require('./util/config')
+const { PORT } = require('./util/config')
 const logger = require('./util/logger')
 
 const server = http.createServer(app)
