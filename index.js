@@ -1,5 +1,5 @@
 const http = require('http')
-const app = require('./app')
+const app = require('./app') // the actual Express app
 const { PORT } = require('./util/config')
 const logger = require('./util/logger')
 
