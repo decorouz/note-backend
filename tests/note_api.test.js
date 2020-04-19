@@ -9,11 +9,11 @@ const Note = require('../models/note')
 beforeEach(async () => {
   await Note.deleteMany({})
 
-  let noteObject = new Note(helper.initialNotes[0])
-  await noteObject.save()
+  const noteObjects = helper.initialNotes.map((note) => new Note(note))
 
-  noteObject = new Note(helper.initialNotes[1])
-  await noteObject.save()
+  const promiseArray = noteObjects.map((note) => note.save())
+  console.log(promiseArray)
+  await Promise.all(promiseArray)
 })
 
 test('note are returned as json', async () => {
@@ -73,13 +73,11 @@ test('a specific note can be viewed', async () => {
   const notesAtStart = await helper.notesInDb()
 
   const noteToView = notesAtStart[0]
-  console.log('note to view', noteToView)
 
   const resultNote = await api
     .get(`/api/notes/${noteToView.id}`)
     .expect(200)
     .expect('Content-Type', /application\/json/)
-  console.log(resultNote.body)
 
   expect(resultNote.body).toEqual(noteToView)
 })
