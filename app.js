@@ -6,6 +6,7 @@ const mongoose = require('mongoose')
 
 const app = express()
 const noteRouter = require('./controllers/notes')
+const usersRouter = require('./controllers/users')
 const middleware = require('./util/middleware')
 const logger = require('./util/logger')
 
@@ -17,6 +18,7 @@ mongoose
   .connect(config.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useCreateIndex: true,
   })
   .then(() => {
     logger.info('connected to MongoDB')
@@ -31,6 +33,7 @@ app.use(express.json())
 app.use(middleware.requestLogger)
 
 app.use('/api/notes', noteRouter)
+app.use('/api/users', usersRouter)
 
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)
