@@ -1,10 +1,11 @@
 
 
-get http://localhost:3003/api/notes
+post http://localhost:3004/api/notes
 Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1sdXVra2FpIiwiaWQiOiI1ZWExYzExNjkzMDNjMDU1MGQ3YTNmOTEiLCJpYXQiOjE1ODc4OTk4ODd9.rT1VSNih4u40S0YDOt
 
 {
-    "content": "VS Code rest Client",
+    "content": "Checking Error handlinh with CS Code Rest Client ",
     "important": true
 }
 
